@@ -1,0 +1,710 @@
+
+/* =========================================================
+   WHAT IF SCENARIO GENERATOR
+   COSMIC NIGHT + COSMIC LIGHT DESIGN
+   ========================================================= */
+
+/* 1. DEFAULT COSMIC NIGHT THEME */
+
+:root {
+    color-scheme: dark;
+
+    --page-1: #080b1d;
+    --page-2: #111638;
+    --page-3: #251344;
+
+    --text: #f5f3ff;
+    --muted: #c0bfdc;
+    --subtle: #9292b8;
+
+    --panel: rgba(23, 27, 65, 0.55);
+    --panel-strong: rgba(30, 35, 82, 0.78);
+    --sidebar: rgba(12, 16, 43, 0.88);
+
+    --input: rgba(9, 13, 37, 0.88);
+    --input-text: #ffffff;
+    --placeholder: #999cbd;
+
+    --select: rgba(18, 23, 58, 0.94);
+    --menu: #171c43;
+    --menu-hover: #30366c;
+
+    --border: rgba(151, 132, 255, 0.42);
+    --border-soft: rgba(151, 132, 255, 0.20);
+
+    --accent: #a78bfa;
+    --accent-2: #6d8cff;
+    --accent-3: #36d9ed;
+    --accent-glow: rgba(137, 107, 255, 0.28);
+
+    --shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+    --card-shadow: 0 14px 42px rgba(0, 0, 0, 0.25);
+
+    --button-text: #ffffff;
+}
+
+
+
+/* 2. PAGE BACKGROUND */
+
+.stApp {
+    background:
+        radial-gradient(
+            ellipse at 12% 12%,
+            rgba(112, 75, 220, 0.18),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 88% 22%,
+            rgba(42, 114, 205, 0.15),
+            transparent 38%
+        ),
+        linear-gradient(
+            rgba(8, 11, 29, 0.72),
+            rgba(8, 11, 29, 0.82)
+        ),
+        url("Background.jpg") center center / cover fixed no-repeat !important;
+
+    color: var(--text);
+}
+
+[data-testid="stAppViewContainer"] {
+    background: transparent !important;
+}
+
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+/* 3. GLOBAL TYPOGRAPHY */
+
+.stApp,
+.stApp p,
+.stApp label,
+.stApp span,
+.stApp li {
+    color: var(--text);
+}
+
+h1, h2, h3, h4 {
+    color: var(--text) !important;
+    font-weight: 750 !important;
+    letter-spacing: -0.5px;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* 4. SIDEBAR */
+
+section[data-testid="stSidebar"] {
+    background: var(--sidebar);
+    border-right: 1px solid var(--border-soft);
+}
+
+section[data-testid="stSidebar"] > div {
+    background: transparent;
+}
+
+section[data-testid="stSidebar"] .block-container {
+    padding-top: 2rem;
+}
+
+.sidebar-brand {
+    margin-bottom: 18px;
+}
+
+.sidebar-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--accent-3) !important;
+    margin-bottom: 8px;
+}
+
+.sidebar-product {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.theme-note {
+    margin-top: 14px;
+    margin-bottom: 18px;
+    font-size: 0.85rem;
+    color: var(--muted) !important;
+}
+
+.sidebar-separator {
+    height: 1px;
+    background: var(--border-soft);
+    margin: 22px 0;
+}
+
+.sidebar-muted {
+    color: var(--muted) !important;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.powered-pill {
+    display: inline-block;
+    padding: 8px 13px;
+    margin-top: 12px;
+    border: 1px solid var(--border-soft);
+    border-radius: 30px;
+    background: var(--panel);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.powered-pill span {
+    color: var(--accent-3) !important;
+}
+
+/* 5. HERO SECTION */
+
+.hero-panel {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    padding: 48px 35px;
+    margin: 12px 0 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(125, 92, 230, 0.20),
+            rgba(50, 115, 220, 0.13),
+            rgba(30, 210, 220, 0.09)
+        ),
+        var(--panel);
+
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow: var(--shadow);
+}
+
+.hero-panel::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -180px;
+    right: -70px;
+
+    background: var(--accent-glow);
+    filter: blur(65px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-panel::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    bottom: -170px;
+    left: -80px;
+
+    background: rgba(54, 217, 237, 0.15);
+    filter: blur(65px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-kicker {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 15px;
+    margin-bottom: 20px;
+
+    border: 1px solid var(--border-soft);
+    border-radius: 30px;
+
+    background: var(--panel);
+    color: var(--accent-3) !important;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.kicker-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--accent-3);
+    box-shadow: 0 0 12px var(--accent-3);
+}
+
+.hero-title-row {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-title-row h1 {
+    margin: 0 !important;
+    font-size: clamp(2rem, 5vw, 3.7rem) !important;
+    font-weight: 900 !important;
+
+    background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent-2),
+        var(--accent-3)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-globe {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+}
+
+.hero-panel h2 {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 16px;
+    font-size: clamp(1.05rem, 2vw, 1.45rem) !important;
+    font-weight: 600 !important;
+    color: var(--muted) !important;
+}
+
+.hero-description {
+    position: relative;
+    z-index: 1;
+
+    max-width: 690px;
+    margin: 14px auto 0;
+
+    color: var(--muted) !important;
+    font-size: 0.98rem;
+}
+
+.cosmic-divider {
+    position: relative;
+    z-index: 1;
+
+    width: 100px;
+    height: 1px;
+    margin: 27px auto 0;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent-3),
+        transparent
+    );
+}
+
+.cosmic-divider span {
+    position: relative;
+    top: -13px;
+    padding: 0 12px;
+    background: transparent;
+    color: var(--accent-3) !important;
+}
+
+/* 6. SECTION HEADINGS */
+
+.section-heading {
+    margin: 25px 0 8px;
+
+    color: var(--text) !important;
+    font-size: 1.45rem;
+    font-weight: 850;
+}
+
+.section-heading span {
+    color: var(--accent-3) !important;
+}
+
+.section-description {
+    margin-bottom: 22px;
+    color: var(--muted) !important;
+    font-size: 0.93rem;
+}
+
+.suggestion-label {
+    margin: 22px 0 10px;
+
+    color: var(--subtle) !important;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+/* 7. BUTTONS */
+
+.stButton > button,
+.stDownloadButton > button {
+    min-height: 43px;
+
+    background: linear-gradient(
+        110deg,
+        var(--accent),
+        var(--accent-2)
+    ) !important;
+
+    color: var(--button-text) !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 13px !important;
+
+    font-weight: 750 !important;
+    font-size: 0.9rem !important;
+
+    box-shadow: 0 7px 24px var(--accent-glow);
+    transition: all 0.22s ease;
+}
+
+.stButton > button p,
+.stDownloadButton > button p {
+    color: var(--button-text) !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.stButton > button:active,
+.stDownloadButton > button:active {
+    transform: scale(0.98);
+}
+
+/* Suggestion buttons */
+
+div[data-testid="stHorizontalBlock"] .stButton > button {
+    min-height: 45px;
+}
+
+/* 8. TEXT AREA AND INPUTS */
+
+.stTextArea textarea,
+.stTextInput input {
+    background: var(--input) !important;
+    color: var(--input-text) !important;
+
+    border: 1px solid var(--border) !important;
+    border-radius: 14px !important;
+
+    padding: 14px !important;
+    font-size: 1rem !important;
+
+    caret-color: var(--accent);
+    box-shadow: none !important;
+}
+
+.stTextArea textarea:focus,
+.stTextInput input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+.stTextArea textarea::placeholder,
+.stTextInput input::placeholder {
+    color: var(--placeholder) !important;
+    opacity: 1;
+}
+
+/* 9. SELECTBOXES */
+
+.stSelectbox div[data-baseweb="select"] > div {
+    background: var(--select) !important;
+    color: var(--input-text) !important;
+
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+}
+
+.stSelectbox div[data-baseweb="select"] span {
+    color: var(--input-text) !important;
+}
+
+div[data-baseweb="popover"],
+div[data-baseweb="menu"] {
+    background: var(--menu) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important;
+}
+
+div[data-baseweb="menu"] li {
+    color: var(--text) !important;
+}
+
+div[data-baseweb="menu"] li:hover {
+    background: var(--menu-hover) !important;
+}
+
+/* 10. RESULT SECTION */
+
+.results-divider {
+    height: 1px;
+    margin: 38px 0 25px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--border),
+        transparent
+    );
+}
+
+.result-scenario {
+    padding: 20px 23px;
+    margin: 18px 0 22px;
+
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+
+    border-radius: 15px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.result-label {
+    margin-bottom: 8px;
+
+    color: var(--accent-3) !important;
+    font-size: 0.7rem;
+    font-weight: 850;
+    letter-spacing: 1.5px;
+}
+
+.result-scenario strong {
+    color: var(--text) !important;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Streamlit result container */
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    background: var(--panel) !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 18px !important;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* Generated markdown */
+
+.stMarkdown h1,
+.stMarkdown h2,
+.stMarkdown h3,
+.stMarkdown h4 {
+    color: var(--text) !important;
+}
+
+.stMarkdown p,
+.stMarkdown li {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.stMarkdown strong {
+    color: var(--text);
+}
+
+.stMarkdown code {
+    color: var(--accent-3);
+}
+
+/* 11. EXPANDER */
+
+div[data-testid="stExpander"] {
+    background: var(--panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+}
+
+div[data-testid="stExpander"] summary {
+    color: var(--text) !important;
+}
+
+/* 12. ALERTS */
+
+div[data-testid="stAlert"] {
+    background: var(--panel-strong) !important;
+    border: 1px solid var(--border-soft) !important;
+    border-radius: 14px !important;
+}
+
+/* 13. SPINNER */
+
+div[data-testid="stSpinner"] p {
+    color: var(--accent-3) !important;
+    font-weight: 650;
+}
+
+/* 14. FOOTER */
+
+.cosmic-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 28px 10px 12px;
+    margin-top: 48px;
+
+    border-top: 1px solid var(--border-soft);
+
+    color: var(--subtle) !important;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    text-align: center;
+}
+
+.cosmic-footer span {
+    color: var(--accent-3) !important;
+}
+
+.footer-separator {
+    opacity: 0.5;
+}
+
+/* 15. DOWNLOAD BUTTON */
+
+.stDownloadButton > button {
+    width: 100%;
+}
+
+/* 16. ANIMATIONS */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(13px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cosmicPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px var(--accent-glow));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px var(--accent-glow));
+    }
+}
+
+.hero-panel {
+    animation: fadeInUp 0.65s ease both;
+}
+
+.hero-globe {
+    animation: cosmicPulse 4s ease-in-out infinite;
+}
+
+/* 17. SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--page-1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-2);
+}
+
+/* 18. RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    .block-container {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+
+    .hero-panel {
+        padding: 38px 22px;
+    }
+}
+
+@media (max-width: 600px) {
+    .block-container {
+        padding: 1rem 0.8rem 2rem;
+    }
+
+    .hero-panel {
+        padding: 32px 16px;
+        border-radius: 20px;
+    }
+
+    .hero-title-row {
+        gap: 8px;
+    }
+
+    .hero-title-row h1 {
+        font-size: 2rem !important;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .section-heading {
+        font-size: 1.2rem;
+    }
+
+    .cosmic-footer {
+        font-size: 0.65rem;
+        line-height: 1.8;
+    }
+}
+
+/* 19. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
